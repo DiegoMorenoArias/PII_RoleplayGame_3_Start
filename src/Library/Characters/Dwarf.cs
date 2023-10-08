@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 namespace RoleplayGame
 {
-    public class Dwarf: ICharacter
+    public class Dwarf: Hero
     {
         private int health = 100;
 
@@ -16,38 +16,6 @@ namespace RoleplayGame
         }
 
         public string Name { get; set; }
-        
-        public int AttackValue
-        {
-            get
-            {
-                int value = 0;
-                foreach (IItem item in this.items)
-                {
-                    if (item is IAttackItem)
-                    {
-                        value += (item as IAttackItem).AttackValue;
-                    }
-                }
-                return value;
-            }
-        }
-
-        public int DefenseValue
-        {
-            get
-            {
-                int value = 0;
-                foreach (IItem item in this.items)
-                {
-                    if (item is IDefenseItem)
-                    {
-                        value += (item as IDefenseItem).DefenseValue;
-                    }
-                }
-                return value;
-            }
-        }
 
         public int Health
         {
@@ -67,21 +35,6 @@ namespace RoleplayGame
             {
                 this.Health -= power - this.DefenseValue;
             }
-        }
-
-        public void Cure()
-        {
-            this.Health = 100;
-        }
-
-        public void AddItem(IItem item)
-        {
-            this.items.Add(item);
-        }
-
-        public void RemoveItem(IItem item)
-        {
-            this.items.Remove(item);
         }
     }
 }
