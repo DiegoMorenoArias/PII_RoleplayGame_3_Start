@@ -91,7 +91,7 @@ namespace Test.Library
             Enemy enemy2 = new Enemy(2);
             Wizard wizard1 = new Wizard("wizard1");
             Wizard wizard2 = new Wizard("wizard2");
-            DoEncounter(new List<Hero>{wizard1, wizard2}, new List<Enemy>{enemy1, enemy2});
+            Encounter.DoEncounter(new List<Hero>{wizard1, wizard2}, new List<Enemy>{enemy1, enemy2});
             const int expected = 100;
             Assert.AreEqual(expected, wizard1.Health);
         }
